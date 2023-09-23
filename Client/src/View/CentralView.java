@@ -7,7 +7,9 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 public class CentralView extends javax.swing.JPanel {
-
+    
+    File fileSelected = null;
+    
     public CentralView() {
         initComponents();
 
@@ -28,7 +30,7 @@ public class CentralView extends javax.swing.JPanel {
         chooseFileBtn = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         fileChoseNameLabel = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        uploadBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
@@ -51,7 +53,12 @@ public class CentralView extends javax.swing.JPanel {
 
         fileChoseNameLabel.setText("No file chosen");
 
-        jButton2.setText("Ulpload to Server");
+        uploadBtn.setText("Ulpload to Server");
+        uploadBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                uploadBtnMouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel4.setText("File Name:");
@@ -73,7 +80,7 @@ public class CentralView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fileChoseNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(uploadBtn)
                 .addGap(63, 63, 63))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -122,7 +129,7 @@ public class CentralView extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chooseFileBtn)
                     .addComponent(fileChoseNameLabel)
-                    .addComponent(jButton2))
+                    .addComponent(uploadBtn))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -144,7 +151,7 @@ public class CentralView extends javax.swing.JPanel {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {chooseFileBtn, jButton2, jButton3});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {chooseFileBtn, jButton3, uploadBtn});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -161,15 +168,20 @@ public class CentralView extends javax.swing.JPanel {
     private void chooseFileBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chooseFileBtnMouseClicked
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
-        File f = chooser.getSelectedFile();
-        String fileName = f.getName();
+        this.fileSelected = chooser.getSelectedFile();
+        String fileName = this.fileSelected.getName();
         fileChoseNameLabel.setText(fileName);
     }//GEN-LAST:event_chooseFileBtnMouseClicked
+
+    private void uploadBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadBtnMouseClicked
+       
+        
+        
+    }//GEN-LAST:event_uploadBtnMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chooseFileBtn;
     private javax.swing.JLabel fileChoseNameLabel;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -185,5 +197,6 @@ public class CentralView extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton uploadBtn;
     // End of variables declaration//GEN-END:variables
 }

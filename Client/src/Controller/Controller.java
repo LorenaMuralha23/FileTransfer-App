@@ -39,9 +39,7 @@ public class Controller {
                 String msg = input.nextLine();
                 byte[] bytes = msg.getBytes();
                 
-                out.write(bytes);
                 
-                System.out.println("Message sended!");
                 
             }
             
