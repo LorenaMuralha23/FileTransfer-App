@@ -27,8 +27,9 @@ public class Server {
                     //A client have connected
                     System.out.println("<SERVER> NEW CONNECTION DONE SUCCESFULLY! <SERVER>");
                     System.out.println("<SERVER> Connecting with client at port <" + client.getPort() + "> and IP <" + client.getInetAddress() + "> <SERVER>");
-
+                    
                     ConnectionHandler handler = new ConnectionHandler(server, client);
+                    handler.createServerRepository();
                     Thread connectionThread = new Thread(handler);
                     connectionThread.start();
 

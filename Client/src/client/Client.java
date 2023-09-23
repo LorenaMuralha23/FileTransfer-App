@@ -14,9 +14,9 @@ import java.util.Scanner;
 
 public class Client {
 
+    public static Controller controller;
+    
     public static void main(String[] args) throws UnknownHostException {
-        startWindow();
-        
         InetAddress srvAddress = null;
         int srvPort = 0;
       
@@ -45,7 +45,9 @@ public class Client {
                 
             }
             
-            Controller controller = new Controller(srvPort, srvAddress);
+            controller = new Controller(srvPort, srvAddress);
+            
+            startWindow();
             
         }else{
             System.out.println("Error: No arguments!");

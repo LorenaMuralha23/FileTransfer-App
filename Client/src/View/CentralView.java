@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package View;
+import Controller.Controller;
+import client.Client;
 import java.io.File;
 import javax.swing.JFileChooser;
 
@@ -10,9 +12,9 @@ public class CentralView extends javax.swing.JPanel {
     
     File fileSelected = null;
     
+    
     public CentralView() {
         initComponents();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -174,9 +176,7 @@ public class CentralView extends javax.swing.JPanel {
     }//GEN-LAST:event_chooseFileBtnMouseClicked
 
     private void uploadBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadBtnMouseClicked
-       
-        
-        
+        Client.controller.sendFile(this.fileSelected);
     }//GEN-LAST:event_uploadBtnMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
