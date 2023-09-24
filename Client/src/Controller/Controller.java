@@ -41,15 +41,15 @@ public class Controller {
             
             System.out.println("Connected!!");
             
-            JSONObject yourInfo = new JSONObject();
+            JSONObject myInfo = new JSONObject();
             
-            yourInfo.put("name", "Lorena");
-            yourInfo.put("id", "78965");
+            myInfo.put("name", Controller.clientName);
+            myInfo.put("id", "7866655");
             
-            out.writeUTF(yourInfo.toString());
+            String myInfoTxt = myInfo.toString();
+            
+            out.writeUTF(myInfoTxt);
                 
-           
-            
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -80,7 +80,7 @@ public class Controller {
                 out.write(buffer, 0, bytesRead);
             }
             file.close();
-            JOptionPane.showConfirmDialog(null, "File sended sucessed");
+            JOptionPane.showMessageDialog(null, "File sended sucessed");
             
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
